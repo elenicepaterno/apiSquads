@@ -11,6 +11,12 @@ app = Flask(__name__)
 
 api = Api(app)
 
+
+# Mateus = framework: angular, linguagem: python, db: mongo
+# Tiago = framework: vue, linguagem: java, db: postgree
+# Nicole = framework: react, linguagem: php, db: mysqlserver
+
+
 # Rota Squad Controller - Listar todos/inserir
 api.add_resource(SquadsController, '/api/squads', endpoint='squads')
 
