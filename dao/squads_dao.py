@@ -39,13 +39,21 @@ class SquadsDao(BaseDao):
 
 
     def listar(self):
-        lista_squads = []
-        comando_sql_listar = "SELECT programador, linguagem, framework, banco_dados FROM squads"                                
-        lista_squads = super().listar(comando_sql_listar)
-        return lista_squads
-
+        listas_squads = []
+        comando_sql_listar = "SELECT programador, linguagem, framework, banco_dados, id FROM squads"                                
+        lista_tuplas = super().listar(comando_sql_listar)
+        for l in lista_tuplas:
+            p = Squads(l[0], l[1], l[2], l[3], l[4])
+            listas_squads.append(p.__dict__)
+        return listas_squads
 
     def buscar_por_id(self, id):
-        comando_sql_buscar_id = f"SELECT programador, linguagem, framework, BANCO_DADOS FROM squads WHERE id = {id}"
-        dados = super().buscar_por_id(comando_sql_buscar_id)
-        return dados
+        lista_squads = []
+        comando_sql_buscar_id = f"SELECT programador, linguagem, framework, banco_dados, id FROM squads where id= {id}"                                
+        tupla = super().buscar_por_id(comando_sql_buscar_id)
+        p = Squads(tupla[1], tupla[2], tupla[3], tupla[4], tupla[0])
+        lista_squads.append(p.__dict__)
+        return lista_squads
+
+# lista = SquadsDao()
+# print(lista.buscar_por_id(id=3))

@@ -22,10 +22,13 @@ class FrameworkDao(BaseDao):
 
 
     def listar(self):
-        lista_framework = []
-        comando_sql_listar = "SELECT NOME_FRAME FROM FRAMEWORK"           
-        lista_framework = super().listar(comando_sql_listar)
-        return lista_framework
+        lista_frameworks = []
+        comando_sql_listar = "SELECT nome_frame, id FROM framework"                                
+        lista_tuplas = super().listar(comando_sql_listar)
+        for l in lista_tuplas:
+            p = Framework(l[0], l[1])
+            lista_frameworks.append(p.__dict__)
+        return lista_frameworks
 
 
     def buscar_por_id(self, id):

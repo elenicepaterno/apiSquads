@@ -22,10 +22,13 @@ class BancoDao(BaseDao):
 
 
     def listar(self):
-        lista_banco = []
-        comando_sql_listar = "SELECT ID, NOME_BANCO FROM BANCO_DADOS"           
-        lista_banco = super().listar(comando_sql_listar)
-        return lista_banco
+        lista_bancos_dados = []
+        comando_sql_listar = "SELECT nome_banco, id FROM banco_dados"                                
+        lista_tuplas = super().listar(comando_sql_listar)
+        for l in lista_tuplas:
+            p = BancoDados(l[0], l[1])
+            lista_bancos_dados.append(p.__dict__)
+        return lista_bancos_dados
 
 
     def buscar_por_id(self, id):
