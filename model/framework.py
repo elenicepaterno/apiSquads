@@ -1,5 +1,5 @@
 class Framework:
-    def __init__(self, nome_frame, id=None):
+    def __init__(self, nome_frame=None, id=None):
         self.nome_frame = nome_frame
         self.id = id
     

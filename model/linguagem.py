@@ -1,5 +1,5 @@
 class Linguagem:
-    def __init__(self, nome_ling, id=None):
+    def __init__(self, nome_ling=None, id=None):
         self.nome_ling = nome_ling
         self.id = id
     

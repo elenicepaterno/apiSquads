@@ -1,5 +1,5 @@
 class Programador:
-    def __init__(self, nome_prog, id=None):
+    def __init__(self, nome_prog=None, id=None):
         self.nome_prog = nome_prog
         self.id = id
     

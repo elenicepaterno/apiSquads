@@ -23,7 +23,7 @@ class LinguagemDao(BaseDao):
 
     def listar(self):
         lista_linguagens = []
-        comando_sql_listar = "SELECT NOME_LING FROM LINGUAGEM"                                
+        comando_sql_listar = "SELECT ID, NOME_LING FROM LINGUAGEM"                                
         lista_linguagens = super().listar(comando_sql_listar)
         return lista_linguagens
 

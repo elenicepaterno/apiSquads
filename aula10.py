@@ -1,33 +1,59 @@
 import sys
-sys.path.append("C:/Users/900217/Desktop/AulasPythonClt2/Aula10/")
+sys.path.append("C:/Users/900223/Desktop/apiSquads/")
 
 from flask import Flask
 from flask_restful import Api
-from controllers.bebidaController import BebidaController
-from controllers.tipo_bebidaController import TipoBebidaController
+from controllers.squadsController import SquadsController
 
 
 app = Flask(__name__)
 
 api = Api(app)
 
-# Rota Bebida Controller - Listar todos/inserir
-api.add_resource(BebidaController, '/api/bebida', endpoint='bebidas')
+# Rota Squad Controller - Listar todos/inserir
+api.add_resource(SquadsController, '/api/squads', endpoint='squads')
 
-# Rota Bebida Controller - Buscar por id/deletar/alterar
-api.add_resource(BebidaController, '/api/bebida/<int:id>', endpoint='bebida')
-
-
-#########################################################################
+# Rota Squad Controller - Buscar por id/deletar/alterar
+api.add_resource(SquadsController, '/api/squads/<int:id>', endpoint='squad')
 
 
-# Rota Tipo Bebida Controller - Listar todos
-api.add_resource(TipoBebidaController, '/api/tipo_bebida', endpoint='tipo_bebida')
+######################################################################################## 
 
-# Rota Tipo Bebida Controller - Buscar por id/deletar/alterar
-api.add_resource(TipoBebidaController, '/api/tipo_bebida/<int:id>', endpoint='tipo_bebidas')
+
+# Rota Programadores - Listar todos/inserir
+api.add_resource(SquadsController, '/api/programadores', endpoint='programadores')
+
+# Rota Squad Controller - Buscar por id/deletar/alterar
+api.add_resource(SquadsController, '/api/programadores/<int:id>', endpoint='programador')
+
+#########################################################################################
+
+
+# Rota Squad Controller - Listar todos/inserir
+api.add_resource(SquadsController, '/api/linguagens', endpoint='linguagens')
+
+# Rota Squad Controller - Buscar por id/deletar/alterar
+api.add_resource(SquadsController, '/api/linguagens/<int:id>', endpoint='linguagem')
+
+
+#########################################################################################
+
+
+# Rota Squad Controller - Listar todos/inserir
+api.add_resource(SquadsController, '/api/frameworks', endpoint='frameworks')
+
+# Rota Squad Controller - Buscar por id/deletar/alterar
+api.add_resource(SquadsController, '/api/frameworks/<int:id>', endpoint='framework')
+
+
+###########################################################################################
+
+
+# Rota Squad Controller - Listar todos/inserir
+api.add_resource(SquadsController, '/api/bancos_dados', endpoint='bancos_dados')
+
+# Rota Squad Controller - Buscar por id/deletar/alterar
+api.add_resource(SquadsController, '/api/bancos_dados/<int:id>', endpoint='banco_dados')
 
 
 app.run(port=80, debug=True)
-
-

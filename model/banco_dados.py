@@ -1,5 +1,5 @@
 class BancoDados:
-    def __init__(self, nome_banco, id=None):
+    def __init__(self, nome_banco=None, id=None):
         self.nome_banco = nome_banco
         self.id = id
     
