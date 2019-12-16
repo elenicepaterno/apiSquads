@@ -1,5 +1,6 @@
 import sys
-sys.path.append("C:/Users/900217/Desktop/AulasPythonClt2/Aula10/")
+sys.path.append("C:/Users/900223/Desktop/apiSquads")
+
 
 from dao.base_dao import BaseDao
 from model.squads import Squads
@@ -48,4 +49,4 @@ class SquadsDao(BaseDao):
     def buscar_por_id(self, id):
         comando_sql_buscar_id = f"SELECT PROGRAMADOR, LINGUAGEM, FRAMEWORK, BANCO_DADOS FROM SQUADS WHERE ID = {id}"
         dados = super().buscar_por_id(comando_sql_buscar_id)
-        return dados
+        return dados.__dict__

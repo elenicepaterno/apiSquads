@@ -1,6 +1,7 @@
 import sys
 sys.path.append("C:/Users/900223/Desktop/apiSquads/")
 
+
 from flask import Flask
 from flask_restful import Api
 from controllers.squadsController import SquadsController

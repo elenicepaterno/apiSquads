@@ -31,4 +31,4 @@ class LinguagemDao(BaseDao):
     def buscar_por_id(self, id):
         comando_sql_buscar_id = f"SELECT NOME_LING FROM LINGUAGEM WHERE ID = {id}"
         dados = super().buscar_por_id(comando_sql_buscar_id)
-        return dados
+        return dados.__dict__
