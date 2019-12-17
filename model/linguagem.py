@@ -1,12 +1,12 @@
 class Linguagem:
     def __init__(self, nome_ling=None, id=None):
-        self.nome_ling = nome_ling
-        self.id = id
+        self.__nome_ling = nome_ling
+        self.__id = id
     
+    @property
+    def nome_ling(self):
+        return self.__nome_ling
 
-    def get_nome_ling(self):
-        return self.nome_ling
-
-
-    def get_id_ling(self):
-        return self.id
+    @property   
+    def id_ling(self):
+        return self.__id

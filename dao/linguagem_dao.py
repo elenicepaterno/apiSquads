@@ -7,12 +7,12 @@ from model.linguagem import Linguagem
 
 class LinguagemDao(BaseDao):
     def inserir(self, linguagem:Linguagem):
-        comando_sql_insert = f"INSERT INTO linguagem (id, nome_ling) VALUES (DEFAULT '{linguagem.get_nome_ling()}')"
+        comando_sql_insert = f"INSERT INTO linguagem (id, nome_ling) VALUES (DEFAULT '{linguagem.nome_ling}')"
         super().inserir(comando_sql_insert)
 
 
     def alterar(self, linguagem:Linguagem):
-        comando_sql_alterar = f"UPDATE linguagem SET nome_ling = '{linguagem.get_nome_ling()}' WHERE id = {linguagem.get_id_ling()}"
+        comando_sql_alterar = f"UPDATE linguagem SET nome_ling = '{linguagem.nome_ling}' WHERE id = {linguagem.id_ling}"
         super().alterar(comando_sql_alterar)
     
 

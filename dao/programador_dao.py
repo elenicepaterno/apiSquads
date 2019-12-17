@@ -7,12 +7,12 @@ from model.programador import Programador
 
 class ProgramadorDao(BaseDao):
     def inserir(self, programador:Programador):
-        comando_sql_insert = f"INSERT INTO programador (id, nome_prog) VALUES (DEFAULT '{programador.get_nome_prog()}')"
+        comando_sql_insert = f"INSERT INTO programador (id, nome_prog) VALUES (DEFAULT '{programador.nome_prog}')"
         super().inserir(comando_sql_insert)
 
 
     def alterar(self, programador:Programador):
-        comando_sql_alterar = f"UPDATE programador SET nome_prog = '{programador.get_nome_prog()}' WHERE id = {programador.get_id_prog()}"
+        comando_sql_alterar = f"UPDATE programador SET nome_prog = '{programador.nome_prog}' WHERE id = {programador.id_prog}"
         super().alterar(comando_sql_alterar)
     
 
@@ -33,7 +33,7 @@ class ProgramadorDao(BaseDao):
 
     def buscar_por_id(self, id):
         lista_programadores = []
-        comando_sql_buscar_id = f"SELECT nome_prog, id FROM programador WHERE id= {id}"                                
+        comando_sql_buscar_id = f"SELECT nome_prog, id FROM programador WHERE id = {id}"                                
         tupla = super().buscar_por_id(comando_sql_buscar_id)
         p = Programador(tupla[0], tupla[1])
         lista_programadores.append(p.__dict__)

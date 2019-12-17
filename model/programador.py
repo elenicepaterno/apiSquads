@@ -1,12 +1,12 @@
 class Programador:
     def __init__(self, nome_prog=None, id=None):
-        self.nome_prog = nome_prog
-        self.id = id
+        self.__nome_prog = nome_prog
+        self.__id = id
     
+    @property   
+    def nome_prog(self):
+        return self.__nome_prog
 
-    def get_nome_prog(self):
-        return self.nome_prog
-
-
-    def get_id_prog(self):
-        return self.id
+    @property
+    def id_prog(self):
+        return self.__id

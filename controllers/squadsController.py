@@ -33,11 +33,14 @@ class SquadsController(Resource):
         framework = Framework(id=framework)
         banco_dados = BancoDados(id=banco_dados)
 
-        if self.verificacao.verificar_squads(squad.__dict__):
-            self.dao.inserir(programador, linguagem, framework, banco_dados)
-            return 'Squad concluido com sucesso!'
-        return 'Squad incorreta!'
-    
+        if len(self.dao.listar()) <= 3:
+            if self.verificacao.verificar_squads(squad):
+                self.dao.inserir(programador, linguagem, framework, banco_dados)
+                return 'Squad feita!'
+            else: 
+                return 'Squad incorreta!'
+        return 'Squads já estão completas!'
+        
 
     def delete(self, id):        
         self.dao.deletar(id)

@@ -7,12 +7,12 @@ from model.framework import Framework
 
 class FrameworkDao(BaseDao):
     def inserir(self, framework:Framework):
-        comando_sql_insert = f"INSERT INTO framework (id, nome_frame) VALUES (DEFAULT,'{framework.get_nome_frame()}')"
+        comando_sql_insert = f"INSERT INTO framework (id, nome_frame) VALUES (DEFAULT,'{framework.nome_frame}')"
         super().inserir(comando_sql_insert)
 
 
     def alterar(self, framework:Framework):
-        comando_sql_alterar = f"UPDATE framework SET nome_frame = '{framework.get_nome_frame()}'WHERE id = {framework.get_id_frame()}"
+        comando_sql_alterar = f"UPDATE framework SET nome_frame = '{framework.nome_frame}'WHERE id = {framework.id_frame}"
         super().alterar(comando_sql_alterar)
 
     

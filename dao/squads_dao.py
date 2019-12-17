@@ -15,21 +15,21 @@ class SquadsDao(BaseDao):
         comando_sql_insert = f"""INSERT INTO squads 
                                 (id, programador, linguagem, framework, banco_dados ) VALUES (
                                 DEFAULT,                                
-                                '{prog.get_id_prog()}',
-                                '{ling.get_id_ling()}',
-                                '{frame.get_id_frame()}',
-                                '{banco.get_id_banco()}')"""
+                                '{prog.id_prog}',
+                                '{ling.id_ling}',
+                                '{frame.id_frame}',
+                                '{banco.id_banco}')"""
 
         super().inserir(comando_sql_insert)
 
 
     def alterar(self, squads:Squads, prog=Programador, ling=Linguagem, frame=Framework, banco=BancoDados):
         comando_sql_alterar = f"""UPDATE squads SET 
-                                programador = '{prog.get_id_prog()}',
-                                linguagem = '{ling.get_id_ling()}',
-                                framework = '{frame.get_id_frame()}',
-                                banco_dados = '{banco.get_id_banco()}'
-                                WHERE id = {squads.get_id_squad()}"""
+                                programador = '{prog.id_prog}',
+                                linguagem = '{ling.id_ling}',
+                                framework = '{frame.id_frame}',
+                                banco_dados = '{banco.id_banco}'
+                                WHERE id = {squads.id_squad}"""
 
         super().alterar(comando_sql_alterar)
 

@@ -7,12 +7,12 @@ from model.banco_dados import BancoDados
 
 class BancoDao(BaseDao):
     def inserir(self, banco:BancoDados):
-        comando_sql_insert = f"INSERT INTO banco_dados (id, nome_banco) VALUES (DEFAULT,'{banco.get_nome_banco()}')"
+        comando_sql_insert = f"INSERT INTO banco_dados (id, nome_banco) VALUES (DEFAULT,'{banco.nome_banco}')"
         super().inserir(comando_sql_insert)
 
 
     def alterar(self, banco:BancoDados):
-        comando_sql_alterar = f"UPDATE banco_dados SET nome_banco = '{banco.get_nome_banco()}'WHERE id = {banco.get_id_banco()}"
+        comando_sql_alterar = f"UPDATE banco_dados SET nome_banco = '{banco.nome_banco}'WHERE id = {banco.id_banco}"
         super().alterar(comando_sql_alterar)
 
     

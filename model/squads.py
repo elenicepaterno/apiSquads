@@ -6,28 +6,28 @@ from model.banco_dados import BancoDados
 
 class Squads:
     def __init__(self, prog=Programador, ling=Linguagem, banco=BancoDados, frame=Framework, id=None):
-        self.prog = prog
-        self.ling = ling
-        self.banco = banco
-        self.frame = frame
-        self.id = id
+        self.__prog = prog
+        self.__ling = ling
+        self.__banco = banco
+        self.__frame = frame
+        self.__id = id
     
+    @property
+    def prog(self):
+        return self.__prog
 
-    def get_prog(self):
-        return self.prog
-
-
-    def get_ling(self):
-        return self.ling
+    @property
+    def ling(self):
+        return self.__ling
         
+    @property
+    def banco(self):
+        return self.__banco
 
-    def get_banco(self):
-        return self.banco
+    @property
+    def frame(self):
+        return self.__frame
 
-
-    def get_frame(self):
-        return self.frame
-
-
+    @property
     def get_id_squad(self):
-        return self.id
+        return self.__id
