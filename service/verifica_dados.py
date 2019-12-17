@@ -1,4 +1,3 @@
-
 class VerificaDados:
     def verificar_squads(self, lista):
         if lista['ling'] == 'Java' and lista['banco'] != 'PostgreSQL':

@@ -32,11 +32,11 @@ class ProgramadorDao(BaseDao):
 
 
     def buscar_por_id(self, id):
-        lista_squads = []
-        comando_sql_buscar_id = f"SELECT nome_prog, id FROM programador where id= {id}"                                
+        lista_programadores = []
+        comando_sql_buscar_id = f"SELECT nome_prog, id FROM programador WHERE id= {id}"                                
         tupla = super().buscar_por_id(comando_sql_buscar_id)
         p = Programador(tupla[0], tupla[1])
-        lista_squads.append(p.__dict__)
-        return lista_squads
+        lista_programadores.append(p.__dict__)
+        return lista_programadores
 
         

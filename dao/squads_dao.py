@@ -9,6 +9,7 @@ from model.linguagem import Linguagem
 from model.framework import Framework
 from model.banco_dados import BancoDados
 
+
 class SquadsDao(BaseDao):
     def inserir(self, prog:Programador, ling:Linguagem, frame:Framework, banco:BancoDados):
         comando_sql_insert = f"""INSERT INTO squads 
@@ -47,6 +48,7 @@ class SquadsDao(BaseDao):
             listas_squads.append(p.__dict__)
         return listas_squads
 
+
     def buscar_por_id(self, id):
         lista_squads = []
         comando_sql_buscar_id = f"SELECT programador, linguagem, framework, banco_dados, id FROM squads where id= {id}"                                
@@ -54,6 +56,3 @@ class SquadsDao(BaseDao):
         p = Squads(tupla[1], tupla[2], tupla[3], tupla[4], tupla[0])
         lista_squads.append(p.__dict__)
         return lista_squads
-
-# lista = SquadsDao()
-# print(lista.buscar_por_id(id=3))

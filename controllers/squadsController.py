@@ -28,7 +28,6 @@ class SquadsController(Resource):
         framework = request.json['framework']
         banco_dados = request.json['banco_dados']
         squad = Squads(programador, linguagem, framework, banco_dados)
-
         programador = Programador(id=programador)
         linguagem = Linguagem(id=linguagem)
         framework = Framework(id=framework)

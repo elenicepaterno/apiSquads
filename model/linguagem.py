@@ -3,8 +3,10 @@ class Linguagem:
         self.nome_ling = nome_ling
         self.id = id
     
+
     def get_nome_ling(self):
         return self.nome_ling
+
 
     def get_id_ling(self):
         return self.id

@@ -7,17 +7,17 @@ from model.linguagem import Linguagem
 
 class LinguagemDao(BaseDao):
     def inserir(self, linguagem:Linguagem):
-        comando_sql_insert = f"INSERT INTO LINGUAGEM (ID, NOME) VALUES (DEFAULT '{linguagem.get_nome_ling()}')"
+        comando_sql_insert = f"INSERT INTO linguagem (id, nome_ling) VALUES (DEFAULT '{linguagem.get_nome_ling()}')"
         super().inserir(comando_sql_insert)
 
 
     def alterar(self, linguagem:Linguagem):
-        comando_sql_alterar = f"UPDATE LINGUAGEM SET NOME = '{linguagem.get_nome_ling()}' WHERE ID = {linguagem.get_id_ling()}"
+        comando_sql_alterar = f"UPDATE linguagem SET nome_ling = '{linguagem.get_nome_ling()}' WHERE id = {linguagem.get_id_ling()}"
         super().alterar(comando_sql_alterar)
     
 
     def deletar(self, id):
-        comando_sql_deletar = f"DELETE FROM LINGUAGEM WHERE ID = {id}"
+        comando_sql_deletar = f"DELETE FROM linguagem WHERE id = {id}"
         super().deletar(comando_sql_deletar)
 
 
@@ -32,6 +32,9 @@ class LinguagemDao(BaseDao):
 
 
     def buscar_por_id(self, id):
-        comando_sql_buscar_id = f"SELECT NOME_LING FROM LINGUAGEM WHERE ID = {id}"
-        dados = super().buscar_por_id(comando_sql_buscar_id)
-        return dados.__dict__
+        lista_linguagens = []
+        comando_sql_buscar_id = f"SELECT nome_ling, id FROM linguagem where id= {id}"                                
+        tupla = super().buscar_por_id(comando_sql_buscar_id)
+        p = Linguagem(tupla[0], tupla[1])
+        lista_linguagens.append(p.__dict__)
+        return lista_linguagens
